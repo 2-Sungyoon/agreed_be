@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="800" viewBox="0 0 1280 800" role="img" aria-labelledby="title desc">
+  <title id="title">Agreed AI 하네스 구조</title>
+  <desc id="desc">외부 대화와 코드 저장소를 읽기 전용 도구로 탐색하고, 실행 예산과 인용 검증을 거쳐 사람 승인 뒤에만 계약 변경이 반영되는 흐름</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#071426"/><stop offset="1" stop-color="#102c46"/>
+    </linearGradient>
+    <filter id="shadow"><feDropShadow dx="0" dy="8" stdDeviation="10" flood-opacity=".24"/></filter>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0 0L10 5L0 10Z" fill="#78d7ff"/></marker>
+    <style>
+      text{font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;fill:#edf8ff}.h1{font-size:34px;font-weight:800}.sub{font-size:16px;fill:#a9c9dc}.boxTitle{font-size:20px;font-weight:800}.boxText{font-size:15px;fill:#c7deeb}.tag{font-size:13px;font-weight:700}.line{stroke:#78d7ff;stroke-width:3;fill:none;marker-end:url(#arrow)}
+    </style>
+  </defs>
+  <rect width="1280" height="800" rx="28" fill="url(#bg)"/>
+  <text x="64" y="72" class="h1">Agreed AI 하네스</text>
+  <text x="64" y="103" class="sub">모델은 필요한 근거를 찾고, 코드는 권한과 종료 조건을 통제하며, 사람은 계약 변경을 결정합니다.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="55" y="175" width="205" height="180" rx="22" fill="#173650" stroke="#44647b"/>
+    <rect x="295" y="175" width="205" height="180" rx="22" fill="#143c55" stroke="#4da6c3"/>
+    <rect x="535" y="145" width="235" height="240" rx="22" fill="#15445c" stroke="#57c7de"/>
+    <rect x="805" y="175" width="205" height="180" rx="22" fill="#173e4b" stroke="#6ee7b7"/>
+    <rect x="1045" y="175" width="180" height="180" rx="22" fill="#3e3544" stroke="#f0b86a"/>
+  </g>
+
+  <text x="80" y="215" class="boxTitle">외부 입력</text>
+  <text x="80" y="250" class="boxText">Gmail, Slack</text><text x="80" y="276" class="boxText">계약 자료, GitHub</text>
+  <rect x="80" y="304" width="105" height="25" rx="12" fill="#653a46"/><text x="92" y="322" class="tag">신뢰하지 않음</text>
+
+  <text x="320" y="215" class="boxTitle">코드 오케스트레이터</text>
+  <text x="320" y="250" class="boxText">추출 → 대조 → 영향 분석</text><text x="320" y="276" class="boxText">고정 순서는 코드로 실행</text>
+  <rect x="320" y="304" width="108" height="25" rx="12" fill="#215c75"/><text x="333" y="322" class="tag">결정적 워크플로</text>
+
+  <text x="560" y="190" class="boxTitle">읽기 전용 서브 에이전트</text>
+  <text x="560" y="225" class="boxText">계약과 자료 검색</text><text x="560" y="251" class="boxText">저장소 파일 탐색</text>
+  <line x1="560" y1="275" x2="742" y2="275" stroke="#3f7185"/>
+  <text x="560" y="305" class="boxText">턴, 시간, 전체 호출 예산</text><text x="560" y="331" class="boxText">동일 호출 반복 차단</text><text x="560" y="357" class="boxText">쓰기 도구는 사람 승인</text>
+
+  <text x="830" y="215" class="boxTitle">근거 검증 게이트</text>
+  <text x="830" y="250" class="boxText">도구가 보여 준 문서만 허용</text><text x="830" y="276" class="boxText">인용문을 원문과 재대조</text>
+  <rect x="830" y="304" width="117" height="25" rx="12" fill="#1d6655"/><text x="843" y="322" class="tag">근거 없으면 강등</text>
+
+  <text x="1070" y="215" class="boxTitle">사람 승인</text>
+  <text x="1070" y="250" class="boxText">범위, 일정, 금액</text><text x="1070" y="276" class="boxText">승인 뒤에만 반영</text>
+  <rect x="1070" y="304" width="108" height="25" rx="12" fill="#72552f"/><text x="1083" y="322" class="tag">최종 책임 경계</text>
+
+  <path class="line" d="M260 265H287"/><path class="line" d="M500 265H527"/><path class="line" d="M770 265H797"/><path class="line" d="M1010 265H1037"/>
+
+  <rect x="55" y="445" width="1170" height="270" rx="24" fill="#0b2033" stroke="#2c5269"/>
+  <text x="85" y="490" class="boxTitle">코드가 강제하는 네 가지 통제</text>
+  <g>
+    <rect x="85" y="525" width="250" height="140" rx="18" fill="#112f46"/><text x="108" y="558" class="boxTitle">1. 최소 권한</text><text x="108" y="590" class="boxText">소유자 범위를 클로저에 고정</text><text x="108" y="617" class="boxText">읽기 도구만 기본 허용</text><text x="108" y="644" class="boxText">쓰기 호출은 승인 없으면 거부</text>
+    <rect x="365" y="525" width="250" height="140" rx="18" fill="#112f46"/><text x="388" y="558" class="boxTitle">2. 제한된 루프</text><text x="388" y="590" class="boxText">최대 턴과 전체 시간</text><text x="388" y="617" class="boxText">도구별, 전체 호출 예산</text><text x="388" y="644" class="boxText">동일 인자 재호출 차단</text>
+    <rect x="645" y="525" width="250" height="140" rx="18" fill="#112f46"/><text x="668" y="558" class="boxTitle">3. 검증 가능한 근거</text><text x="668" y="590" class="boxText">구조화 출력 재검증</text><text x="668" y="617" class="boxText">원문에 없는 인용 제거</text><text x="668" y="644" class="boxText">확인 실패 시 안전 상태로 강등</text>
+    <rect x="925" y="525" width="270" height="140" rx="18" fill="#112f46"/><text x="948" y="558" class="boxTitle">4. 안전한 관측성</text><text x="948" y="590" class="boxText">종료 이유와 호출 상태 기록</text><text x="948" y="617" class="boxText">인자 원문 대신 해시만 저장</text><text x="948" y="644" class="boxText">도구 결과와 비밀값은 로그 제외</text>
+  </g>
+  <text x="64" y="760" class="sub">구현: infra/llm/harness.py · 검증: tests/test_agent_harness.py · 계약 반영 게이트: core/contract_ops.py</text>
+</svg>

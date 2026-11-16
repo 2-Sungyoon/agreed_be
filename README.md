@@ -14,6 +14,19 @@
 - 프로젝트·요청·자료·원문 저장 및 프로젝트별 계약/요구사항 API
 - Gmail 상대·Slack 채널 sync와 BackgroundTasks 기반 3색 요청 판정·자료 분류
 
+## AI 하네스
+
+![Agreed AI 하네스 구조](./docs/ai-harness-architecture.svg)
+
+AI는 계약과 코드의 근거를 찾지만 계약을 직접 수정하지 않습니다. 고정된 업무 순서는
+코드가 실행하고, 서브 에이전트에는 소유자 범위가 고정된 읽기 도구만 기본 제공합니다.
+하네스는 턴, 시간, 전체 호출, 도구별 호출을 제한하고 동일 호출을 차단합니다. 쓰기
+도구는 사람 승인 없이는 실행되지 않으며, 모델이 제시한 인용은 원문과 다시 대조합니다.
+
+- 구조와 코드: [AI_AGENTS.md](./AI_AGENTS.md)
+- 공식 문서와 논문별 설계 근거: [docs/AI_HARNESS_EVIDENCE.md](./docs/AI_HARNESS_EVIDENCE.md)
+- 권한과 종료 조건 회귀 시험: `tests/test_agent_harness.py`
+
 ## 로컬 실행
 
 Python 3.12를 사용합니다.
@@ -64,6 +77,7 @@ http://localhost:8000/api/slack/callback
 | [HANDOFF.md](./HANDOFF.md) | 현재 상태와 다음 작업 |
 | [DATA_AI_PIPELINE.md](./DATA_AI_PIPELINE.md) | 프로젝트·수집·AI·근거 설계 |
 | [AI_AGENTS.md](./AI_AGENTS.md) | 에이전트 구조·하네스·도구 |
+| [docs/AI_HARNESS_EVIDENCE.md](./docs/AI_HARNESS_EVIDENCE.md) | 하네스 위험 모델·공식 근거·회귀 시험 |
 | [USER_FLOW.md](./USER_FLOW.md) | 화면별 흐름·설계 근거·미연결 구간 |
 | [DOMAIN_SPEC.md](./DOMAIN_SPEC.md) | 프로젝트·티켓·이벤트 도메인과 정책 설계안 |
 | [HANDOFF_PROMPT.md](./HANDOFF_PROMPT.md) | 다른 LLM에게 그대로 붙여넣는 인수인계 프롬프트 |
