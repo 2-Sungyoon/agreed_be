@@ -18,6 +18,11 @@
 
 ![Agreed AI 하네스 구조](./docs/ai-harness-architecture.svg)
 
+구조도는 C4 컨테이너 관점에 신뢰 경계와 제어 계층을 결합했습니다. 외부 비신뢰
+입력, FastAPI 애플리케이션, 결정적 워크플로, DeepSeek 도구 호출 런타임,
+Pydantic 기반 검증, 사람 승인, MongoDB 저장소를 분리해 실제 데이터 흐름과 책임
+경계를 함께 보여줍니다.
+
 AI는 계약과 코드의 근거를 찾지만 계약을 직접 수정하지 않습니다. 고정된 업무 순서는
 코드가 실행하고, 서브 에이전트에는 소유자 범위가 고정된 읽기 도구만 기본 제공합니다.
 하네스는 턴, 시간, 전체 호출, 도구별 호출을 제한하고 동일 호출을 차단합니다. 쓰기
@@ -26,6 +31,7 @@ AI는 계약과 코드의 근거를 찾지만 계약을 직접 수정하지 않�
 - 구조와 코드: [AI_AGENTS.md](./AI_AGENTS.md)
 - 공식 문서와 논문별 설계 근거: [docs/AI_HARNESS_EVIDENCE.md](./docs/AI_HARNESS_EVIDENCE.md)
 - 권한과 종료 조건 회귀 시험: `tests/test_agent_harness.py`
+- 구현 기술: Python, FastAPI, Pydantic, DeepSeek OpenAI 호환 API, MongoDB, Beanie
 
 ## 로컬 실행
 
